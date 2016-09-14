@@ -8,26 +8,26 @@ describe('Meetup', () => {
         const expectedResult = '200'
         const meetup = new Meetup();
 
-        var options = {
-            host: 'jsonplaceholder.typicode.com',
-            path: '/posts/1'
-        };
-        callback = function(response) {
-            var str = '';
-            console.log('statusCode')
-            response.on('data', function(chunk) {
-                str += chunk;
-            });
-            response.on('end', function() {
-                var obj = JSON.parse(str);
-                console.log(obj.title);
-            });
-            done();
-        }
+        // var options = {
+        //     host: 'jsonplaceholder.typicode.com',
+        //     path: '/posts/1'
+        // };
+        // callback = function(response) {
+        //     var str = '';
+        //     console.log('statusCode')
+        //     response.on('data', function(chunk) {
+        //         str += chunk;
+        //     });
+        //     response.on('end', function() {
+        //         var obj = JSON.parse(str);
+        //         console.log(obj.title);
+        //     });
+        //     done();
+        // }
 
         // http.request(options, callback).end();
 
-        const actual = meetup.getStatusCode(done);
+        const actual = meetup.getStatusCode();
         // request(app).get('/twitter').expect(200, done);
         expect(actual).to.equal(expectedResult)
     })
