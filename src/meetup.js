@@ -4,16 +4,14 @@ var http = require('http');
 
 
 function Meetup() {
-    this.statusCode = 0
+    this.statusCode = undefined
 }
 
 Meetup.prototype.makeRequest = function() {
 
     var options = {
-        // host: 'api.meetup.com',
-        // path: '/find/groups?&sign=true&photo-host=public&country=United%20Kingdon&location=Belfast&page=20&key=716b7eb3b707c1b1b2734a14431c47'
-        host: 'jsonplaceholder.typicode.com',
-        path: '/posts/1'
+        host: 'api.meetup.com',
+        path: '/find/groups?&sign=true&photo-host=public&country=United%20Kingdon&location=Belfast&page=20&key=716b7eb3b707c1b1b2734a14431c47'
     };
 
     http.request(
@@ -24,7 +22,7 @@ Meetup.prototype.makeRequest = function() {
                 str += chunk;
             });
             response.on('end', function() {
-                var obj = JSON.parse(str);
+                // var obj = JSON.parse(str);
             });
             this.statusCode= response.statusCode
         }).end()
