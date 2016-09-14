@@ -7,7 +7,7 @@ function Meetup() {
     this.statusCode = 0
 }
 
-Meetup.prototype.getStatusCode = function() {
+Meetup.prototype.makeRequest = function() {
 
     var options = {
         // host: 'api.meetup.com',
@@ -16,38 +16,23 @@ Meetup.prototype.getStatusCode = function() {
         path: '/posts/1'
     };
 
-    // callback = function(response) {
-    //     var str = '';
-    //     console.log('statusCode')
-    //     response.on('data', function(chunk) {
-    //         str += chunk;
-    //     });
-    //     response.on('end', function() {
-    //         var obj = JSON.parse(str);
-    //         console.log(obj.title);
-    //     });
-    //
-    //     console.log('test line');
-    //
-    // }
-
     http.request(
         options,
         (response) => {
             var str = '';
-            console.log('statusCode')
             response.on('data', function(chunk) {
                 str += chunk;
             });
             response.on('end', function() {
                 var obj = JSON.parse(str);
-                console.log(obj.title);
             });
-            console.log('test line');
+            this.statusCode= response.statusCode
         }).end()
-
-
-
-    return '200'
 }
+
+Meetup.prototype.getStatusCode = function(){
+  return this.statusCode;
+}
+
+
 module.exports = Meetup
