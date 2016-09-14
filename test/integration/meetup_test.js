@@ -7,6 +7,9 @@ describe('Meetup', () => {
     it('should return all events from an input url', (done) => {
         const expectedResult = '200'
         const meetup = new Meetup();
+        function log(i){
+          console.log('inside', i)
+        }
 
         // var options = {
         //     host: 'jsonplaceholder.typicode.com',
@@ -27,8 +30,17 @@ describe('Meetup', () => {
 
         // http.request(options, callback).end();
 
-        const actual = meetup.getStatusCode();
-        // request(app).get('/twitter').expect(200, done);
-        expect(actual).to.equal(expectedResult)
+        var actual = ''
+
+        console.log('start');
+        actual = meetup.getStatusCode();
+        setTimeout(function() {
+          console.log('test1');
+          expect(actual).to.equal(expectedResult)
+          done()},500);
+          console.log('test2');
+
+            // request(app).get('/twitter').expect(200, done);
+
     })
 })
