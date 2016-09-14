@@ -1,0 +1,24 @@
+{
+  "name": "apiexample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/George-Allstate/ApiExample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/George-Allstate/ApiExample/issues"
+  },
+  "homepage": "https://github.com/George-Allstate/ApiExample#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "dotenv": "^2.0.0",
+    "mocha": "^3.0.2"
+  }
+}
